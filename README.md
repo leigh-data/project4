@@ -1,7 +1,7 @@
 # Network
 
-[Website](#)
-[GitHub](#)
+[Website](https://network-19125.herokuapp.com/)
+[GitHub](https://github.com/leigh-data/project4/)
 [YouTube](#)
 
 ---
@@ -97,6 +97,10 @@ Directory that contains the templae files.
 
 **base.html** - The base template for the application.
 
+**404.html** - Error template for 404 errors.
+
+**500.html** - Error template for 500 errors.
+
 ### account/
 
 Directory for custom [allauth](https://django-allauth.readthedocs.io/en/latest/)
@@ -169,3 +173,15 @@ pytest settings file.
 ## requirements.txt
 
 The Python packages needed to run the project.
+
+## runtime.txt
+
+Specifies the Python runtime for the project.
+
+## Procfile
+
+Scripts run by Heroku to run the project on the platform.
+
+## manage.py
+
+Django task runner.
