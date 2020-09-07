@@ -35,13 +35,13 @@ class CreatePostView(LoginRequiredMixin, CreateView):
 
 class ProfilePostsView(ListView):
     template_name = 'posts/profile.html'
-    context_object_name = 'posts'
     paginate_by = 10
+    context_object_name = 'posts'
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
-        return user.posts.all().prefetch_related('liked_by')
-    
+        return user.posts.all().prefetch_related('liked_by').prefetch_related('author__followed_by')
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         profile_user = User.objects.get(username=self.kwargs['username'])
@@ -50,7 +50,7 @@ class ProfilePostsView(ListView):
             context['following'] = profile_user in self.request.user.follows.all()
         else:
             context['following'] = False
-        
+
         context['profile'] = True
         return context
     

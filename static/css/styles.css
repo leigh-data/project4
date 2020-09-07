@@ -19,6 +19,10 @@
   font-size: 2rem;
 }
 
+.profile-banner {
+  display: inline;
+}
+
 .next-link {
   float: right;
 }
