@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+    {% if user.is_authenticated and user != profile_user %}
+        <button class="follow-button btn {% if following %}
+           following btn-danger{% else %}btn-success{% endif %}"
+        data-author-id="{{ profile_user.pk }}"
+        >{% if following %}Unfollow{% else %}Follow{% endif %}</button>
+      <span class="profile-user ml-2">{{ profile_user }}</span>
+    {% endif %}
+  {% include 'includes/post_list.html' %}
+{% endblock %}

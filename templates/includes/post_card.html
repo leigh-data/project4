@@ -1,0 +1,32 @@
+<div class="card my-2">
+  <div class="card-body">
+    <h5 class="card-title">
+    {% if not profile %}
+      <a href="{% url 'posts:profile' post.author.username %}" class="profile-link">{{ post.author.username }}</a>
+    {% else %}
+      {{ post.author.username }}
+    {% endif %}
+    </h5>
+    <p class="card-text">{{ post.content }}</p>
+    <p>{{ post.created }}</p>
+    {% if request.user == post.author %}
+    <form class="edit-form hide" data-post-id="{{ post.id }}">
+      <div class="form-group">
+        <textarea name="content" class="textarea form-control" rows="2" required>{{ post.content }}</textarea>
+      </div>
+      <button class="btn btn-primary">Update</button>
+    </form>
+    <a href="" class="card-link">Edit</a>
+    {% endif %}
+
+    <div>
+      {% if user.is_authenticated %}
+        <span class="like-widget like-button {% if user in post.liked_by.all %}like{% endif %}" data-post-id="{{post.id}}">&#9829; </span>
+        <span class="like-widget like-count">{{ post.like_count}}</span>
+      {% else %}
+        <span class="like-widget">&#9829;</span>
+        <span class="like-widget like-count">{{ post.like_count}}</span>
+      {% endif %} 
+    </div>
+  </div>
+</div>

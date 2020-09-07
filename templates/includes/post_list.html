@@ -1,0 +1,6 @@
+{% for post in posts %}
+    {% include 'includes/post_card.html' %}
+  {% empty %}
+    <p>There are no posts.</p>
+{% endfor %}
+{% include 'includes/pagination.html' %}

@@ -1,0 +1,24 @@
+.hide {
+  display: none;
+}
+
+.card-text {
+  min-height: 62px;
+}
+
+.like-widget {
+  display: inline;
+  font-size: 1.5rem;
+}
+
+.like {
+  color: red;
+}
+
+.profile-user {
+  font-size: 2rem;
+}
+
+.next-link {
+  float: right;
+}
