@@ -7,6 +7,10 @@
         data-author-id="{{ profile_user.pk }}"
         >{% if following %}Unfollow{% else %}Follow{% endif %}</button>
     {% endif %}
-    <span class="profile-user ml-2">{{ profile_user }}</span>
+    <div class="profile-banner">
+      <span class="profile-user ml-2">{{ profile_user }}</span>
+      <span class="followers">Followers: <span class="followers-count">{{ profile_user.followed_by.count }}</span></span>
+      <span class="following">Following: {{ profile_user.follows.count }}</span>
+    </div>
   {% include 'includes/post_list.html' %}
 {% endblock %}

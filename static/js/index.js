@@ -79,6 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleFollowClick = e => {
     const button = e.target;
     const authorId = e.target.dataset.authorId;
+    const followersCount = e.target.parentNode.getElementsByClassName(
+      'followers-count'
+    )[0];
     const csrftoken = Cookies.get('csrftoken');
 
     if (button.classList.contains('following')) {
@@ -89,6 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json;charset=UTF-8',
         },
       });
+
+      followersCount.innerHTML = parseInt(followersCount.innerHTML) - 1;
     } else {
       fetch(`/api/users/${authorId}/follow/`, {
         method: 'POST',
@@ -97,6 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json;charset=UTF-8',
         },
       });
+
+      followersCount.innerHTML = parseInt(followersCount.innerHTML) + 1;
     }
       // Button display logic
       button.classList.toggle('following');
