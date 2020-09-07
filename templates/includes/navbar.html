@@ -6,18 +6,23 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="{% url 'posts:index' %}">
+          <span class="sr-only">(current)</span>
+          All Posts
+      </a>
+    </li>
     {% if user.is_authenticated %}
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="{% url 'posts:profile' user.username %}">
-            <span class="sr-only">(current)</span>
             {{ user.username }}
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+        <a class="nav-link" href="{% url 'posts:following' %}">Following</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'posts:following' %}">Following</a>
+        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
       </li>
     {% else %}
       <li class="nav-item">

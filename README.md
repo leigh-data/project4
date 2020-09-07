@@ -164,3 +164,8 @@ File containing options for running **coverage.py** test coverage.
 
 ## pytest.ini
 
+pytest settings file.
+
+## requirements.txt
+
+The Python packages needed to run the project.
