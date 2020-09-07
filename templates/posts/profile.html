@@ -6,7 +6,7 @@
            following btn-danger{% else %}btn-success{% endif %}"
         data-author-id="{{ profile_user.pk }}"
         >{% if following %}Unfollow{% else %}Follow{% endif %}</button>
-      <span class="profile-user ml-2">{{ profile_user }}</span>
     {% endif %}
+    <span class="profile-user ml-2">{{ profile_user }}</span>
   {% include 'includes/post_list.html' %}
 {% endblock %}
